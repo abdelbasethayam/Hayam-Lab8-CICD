@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    image: abdelbasethayam/lab8-app:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URI=mongodb://db:27017/tasksdb
+    depends_on:
+      - db
+
+  db:
+    image: mongo:latest
+    volumes:
+      - db-data:/data/db
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js
+
+volumes:
+  db-data:
