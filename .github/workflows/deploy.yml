@@ -36,7 +36,7 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            cd ~/lab8-cicd
+            cd ~/Hayam-Lab8-CICD
             git pull
             docker compose pull
             docker compose down
